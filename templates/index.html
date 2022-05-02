@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            box-sizing: border-box;
+            border: 0px solid black;
+            background-color: blue;
+            font-weight: bolder;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+        }
+        .card {
+            box-sizing: border-box;
+            /* border: 0px solid black; */
+            background-color: blue;
+            font-weight: bolder;
+            color: white; 
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Emmanuel Blog</h2>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn">
+            {% for post in posts reversed %}
+            <div class="card">
+                <a style="text-decoration:none; color:white;" href="/post/{{post.id}}">
+                    <h2>{{post.title}}</h2>
+                    <h5>{{post.created_at}}</h5>
+                    <p>{{post.body | truncatewords:20}}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
